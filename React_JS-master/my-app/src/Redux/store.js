@@ -1,5 +1,9 @@
-import {createStore} from 'redux'
+import {createStore, combineReducers} from 'redux'
 import {userReducer} from './reducers/userReducers.js'
+
+const singleReducer = combineReducers({
+    userReducer,
+})
 
 
 
