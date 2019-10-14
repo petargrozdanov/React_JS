@@ -8,6 +8,8 @@ import About from './About'
 import Contact from './Contact'
 import Login from './Login'
 import Table from './Table'
+import {Provider} from 'react-redux'
+import store from './Redux/store.js'
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
@@ -43,4 +45,7 @@ const Routes = () => {
     )
 }
 
-ReactDOM.render(<Routes/>, app)
+ReactDOM.render(
+    <Provider store={store}>
+        <Routes />
+    </Provider>, app)
