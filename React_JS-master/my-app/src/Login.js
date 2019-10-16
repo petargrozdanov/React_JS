@@ -1,4 +1,7 @@
 import React from 'react'
+import store from './Redux/store.js'
+import { updateUser } from './Redux/actions/updateUser.js'
+import Alert from './Alert.js'
 
 class Login extends React.Component  {
     constructor() {
@@ -22,12 +25,18 @@ class Login extends React.Component  {
     }
 
     submit = () => {
-        alert(this.state.username + ' ' + this.state.password)
+        store.dispatch(updateUser(
+            this.state.username,
+            this.state.password
+            )
+        )
+        
     }
 
     render () {
         return (
             <React.Fragment>
+                <Alert />
                 <input 
                     id ='username' 
                     placeholder='Username' 

@@ -1,4 +1,5 @@
-import {createStore, combineReducers} from 'redux'
+import {createStore, combineReducers, applyMiddleware} from 'redux'
+import logger from 'redux-logger'
 import {userReducer} from './reducers/userReducers.js'
 
 const singleReducer = combineReducers({
@@ -7,7 +8,10 @@ const singleReducer = combineReducers({
 
 
 
-const store = createStore(userReducer)
+const store = createStore(
+    singleReducer,
+    applyMiddleware(logger)
+)
 
 console.log(store.getState)
 
